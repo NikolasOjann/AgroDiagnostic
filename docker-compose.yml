@@ -1,0 +1,36 @@
+# /docker-compose.yml
+version: '3.8'
+
+services:
+  backend-api:
+    build: ./Backend
+    container_name: backend_cabai
+    ports:
+      - "8000:8000"
+    environment:
+      # Masukkan API Key Gemini Anda di sini untuk testing lokal
+      - GEMINI_API_KEY=MASUKKAN_API_KEY_GEMINI_ANDA_DISINI
+      - GCP_BUCKET_NAME=nama-bucket-gcp-anda
+    networks:
+      - backend-vpc
+
+  frontend-ui:
+    build: ./Frontend
+    container_name: frontend_cabai
+    ports:
+      - "8501:8501"
+    environment:
+      # URL ini otomatis merujuk ke nama service backend di atas
+      - BACKEND_URL=http://backend-api:8000
+    networks:
+      - frontend-vpc
+      - backend-vpc # Frontend butuh akses ke network backend untuk mengirim data
+    depends_on:
+      - backend-api
+
+# Simulasi Segmentasi VPC sesuai syarat dosen
+networks:
+  frontend-vpc:
+    driver: bridge
+  backend-vpc:
+    driver: bridge

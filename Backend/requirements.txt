@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic
+scikit-fuzzy
+numpy
+Sastrawi
+google-generativeai
+google-cloud-storage
+networkx
