@@ -9,7 +9,7 @@ services:
       - "8000:8000"
     environment:
       # Masukkan API Key Gemini Anda di sini untuk testing lokal
-      - GEMINI_API_KEY=MASUKKAN_API_KEY_GEMINI_ANDA_DISINI
+      - GEMINI_API_KEY=AQ.Ab8RN6IAlJ0zS72mNx4LamjX_2r9wuc5mENqkQm3h_Fdbhbs3w
       - GCP_BUCKET_NAME=nama-bucket-gcp-anda
     networks:
       - backend-vpc

@@ -1,16 +1,13 @@
-# /Backend/Dockerfile
-FROM python:3.9-slim
+FROM python:3.9
 
 WORKDIR /app
 
-# Install dependencies
 COPY requirements.txt .
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy source code
 COPY . .
 
 EXPOSE 8000
 
-# Jalankan server FastAPI
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

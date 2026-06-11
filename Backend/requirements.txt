@@ -2,8 +2,11 @@ fastapi
 uvicorn
 pydantic
 scikit-fuzzy
-numpy
+numpy<2.0.0
 Sastrawi
 google-generativeai
 google-cloud-storage
 networkx
+scipy
+packaging
+python-multipart
